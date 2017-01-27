@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  microservicesdemo-oauth:
+    build:
+      context: ./microservicesdemo-oauth/
+      dockerfile: ./Dockerfile
+    image: microservicesdemo/oauth
+    links:
+      - microservicesdemo-user:gateway
+    environment:
+      PORT: 80
+  microservicesdemo-user:
+    build:
+      context: ./microservicesdemo-user/
+      dockerfile: ./Dockerfile
+    image: microservicesdemo/user
+    environment:
+      PORT: 80

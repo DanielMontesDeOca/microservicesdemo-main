@@ -1,0 +1,12 @@
+[submodule "microservicesdemo-core"]
+	path = microservicesdemo-core
+	url = git@github.com:DanielMontesDeOca/microservicesdemo-core.git
+	branch = master
+[submodule "microservicesdemo-oauth"]
+	path = microservicesdemo-oauth
+	url = git@github.com:DanielMontesDeOca/microservicesdemo-oauth.git
+	branch = master
+[submodule "microservicesdemo-user"]
+	path = microservicesdemo-user
+	url = git@github.com:DanielMontesDeOca/microservicesdemo-user.git
+	branch = master

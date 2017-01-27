@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  microservicesdemo-oauth:
+    volumes:
+      - ./microservicesdemo-oauth/src:/var/lib/app
+      - ./microservicesdemo-oauth/scripts:/home/docker/scripts
+      - ./microservicesdemo-core:/var/lib/core
+      # prevent mounting node_modules to avoid cross-platform incompatibilities
+      - /var/lib/app/node_modules
+    ports:
+      - "8080:80"
+    environment:
+      NODE_ENV: development
+    entrypoint: /home/docker/scripts/startup.dev.sh
+  microservicesdemo-user:
+    volumes:
+      - ./microservicesdemo-user/src:/var/lib/app
+      - ./microservicesdemo-user/scripts:/home/docker/scripts
+      - ./microservicesdemo-core:/var/lib/core
+      # prevent mounting node_modules to avoid cross-platform incompatibilities
+      - /var/lib/app/node_modules
+    ports:
+      - "8081:80"
+    environment:
+      NODE_ENV: development
+    entrypoint: /home/docker/scripts/startup.dev.sh
