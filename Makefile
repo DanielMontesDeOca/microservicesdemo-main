@@ -40,5 +40,13 @@ docker-dev:
 docker-dev-down:
 	@docker-compose $(DOCKER_DEV_COMPOSE) down
 
+# Switch to existing branch
+change-branch:
+	git fetch && git checkout $(branch) && git submodule foreach "git fetch origin --tags; git checkout $(branch);" && git submodule update --recursive --remote
+
+# Switch to new branch branch with branch=name
+create-branch:
+	git checkout -B $(branch) && git submodule foreach "git checkout -B $(branch);"
+
 update-services:
-	git submodule update --recursive --remote
+	git pull && git submodule update --recursive --remote
