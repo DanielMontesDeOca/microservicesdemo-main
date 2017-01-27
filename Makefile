@@ -41,4 +41,4 @@ docker-dev-down:
 	@docker-compose $(DOCKER_DEV_COMPOSE) down
 
 update-services:
-	git submodule update --recursive
+	git submodule update --recursive --remote
